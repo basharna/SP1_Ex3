@@ -2,14 +2,14 @@
 #include <stdio.h>
 
 int main(){
-    char a;
+    int a;
     char data[100];
     StrList* list = StrList_alloc();
     while(1){
-        scanf("%c",&a);
+        scanf("%d",&a);
     switch (a)
     {
-    case 'A':{
+    case 1:{
         int count;
         scanf("%d",&count);
         for (size_t i = 0; i < count; i++)
@@ -20,7 +20,7 @@ int main(){
         break;
     }
 
-    case 'B':{
+    case 2:{
         int index;
         scanf("%d",&index);
         scanf("%s",data);
@@ -28,67 +28,74 @@ int main(){
         break;
     }
 
-    case 'C':
+    case 3:
         StrList_print(list);
         break;
 
-    case 'D':{
+    case 4:{
         int size = StrList_size(list);
         printf("%d\n",size);
         break;
     }
     
-    case 'E':{
+    case 5:{
         int index;
         scanf("%d",&index);
         StrList_printAt(list,index);
         break;
     }
 
-    case 'F':{
+    case 6:{
         int size = StrList_printLen(list);
         printf("%d\n",size);
         break;
     }
-    case 'G':{
+    case 7:{
         scanf("%s",data);
         int count = StrList_count(list,data);
         printf("%d\n",count);
         break;
     }
 
-    case 'H':{
+    case 8:{
         scanf("%s",data);
         StrList_remove(list,data);
         break;
     }
 
-    case 'I':{
+    case 9:{
         int index;
         scanf("%d",&index);
         StrList_removeAt(list,index);
         break;
     }
 
-    case 'J':
+    case 10:
         StrList_reverse(list);
         break;
     
-    case 'K':
+    case 11:
         StrList_free(list);
         break;
 
-    case 'L':
+    case 12:
         StrList_sort(list);
         break;
 
-    case 'M':{
+    case 13:{
         int sorted = StrList_isSorted(list);
-        printf("%d\n",sorted);
+        if (sorted == 1)
+        {
+            printf("true\n");
+        }
+        else
+        {
+            printf("false\n");
+        }
         break;
     }
 
-    case 'N':
+    case 0:
         return 0;
         
     default:
