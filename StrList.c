@@ -60,6 +60,8 @@ void StrList_free(StrList* list) {
         p1 = p1->next;
         Node_free(p2);
     }
+    list->head = NULL;
+    list->size = 0;
     free(list);
 }
 
@@ -115,6 +117,9 @@ char* StrList_firstData(const StrList* StrList){
 }
 
 void StrList_print(const StrList* StrList){
+    if (StrList == NULL || StrList->size == 0) {
+        return;
+    }
     Node* p = StrList->head;
     int i = 0;
     while (p) {
